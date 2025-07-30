@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Budget Tracker - Sign In</title>
+  <link rel="stylesheet" href="Authentication.css" />
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+    import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-analytics.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyB7kSyew2NmqEgn7N6bkWiRNPTRUZgjSN8",
+      authDomain: "student-budget-tracker-908a8.firebaseapp.com",
+      projectId: "student-budget-tracker-908a8",
+      storageBucket: "student-budget-tracker-908a8.appspot.com",
+      messagingSenderId: "24262403780",
+      appId: "1:24262403780:web:99d86cafc0cf9412b78b91",
+      measurementId: "G-2RKMQLNXXR"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('googleSignInBtn');
+      if (btn) {
+        btn.addEventListener('click', () => {
+          signInWithPopup(auth, provider)
+            .then((result) => {
+              const user = result.user;
+              // display welcome message temporarily
+              document.getElementById('welcomeMessage').textContent = `Welcome, ${user.displayName}! Redirecting...`;
+              // Redirect after a short delay
+              setTimeout(() => {
+                window.location.href = 'budget.html';
+              }, 1500);
+            })
+            .catch((error) => {
+              console.error(error);
+              alert("Sign-in failed: " + error.message);
+            });
+        });
+      }
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <h1>SBT</h1>
+  </header>
+
+  <main class="login-container">
+    <h2>Sign In SBT to Get Started</h2>
+    <button id="googleSignInBtn">
+      <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google sign-in" />
+      Sign in with Google
+    </button>
+    <div id="welcomeMessage" class="welcome-message"></div>
+  </main>
+</body>
+</html>
+

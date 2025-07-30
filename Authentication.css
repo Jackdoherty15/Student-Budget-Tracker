@@ -1,0 +1,96 @@
+/* Base body styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Header styles */
+header {
+  background-color: #ffffff;
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;
+  color: #253858;
+  font-size: 24px;
+  font-weight: bold;
+
+}
+
+.login-container {
+  background: #ebf2f7;
+  padding: 40px;
+  border-radius: 12px;
+  color: #253858;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  margin: 40px auto; /* Adds space at the top and centers it horizontally */
+  box-sizing: border-box; /* Ensures padding doesn’t overflow width */
+}
+
+/* Heading inside the login box */
+.login-container h2 {
+  margin-bottom: 20px;
+}
+
+/* Sign-in button */
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  background-color: #4285F4;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Google logo inside button */
+button img {
+  width: 20px;
+  margin-right: 8px;
+}
+
+/* Hover effect */
+button:hover {
+  background-color: #357ae8;
+}
+
+/* Welcome message after login */
+.welcome-message {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    padding: 20px;
+    max-width: 90%;
+
+  }
+
+  header {
+    font-size: 20px;
+    padding: 16px 0;
+  }
+
+  .login-container h2 {
+    font-size: 18px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+
